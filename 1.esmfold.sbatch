@@ -25,8 +25,8 @@ export APPTAINER_BIND="/filer-5:/filer-5"
 
 # 2. 定义路径
 # 请检查你的输入文件路径是否正确
-INPUT_FASTA="/filer-5/user/tan/protein/zcct1_56_aa.fa"
-OUTPUT_DIR="/filer-5/user/tan/protein/zcct1_56_aa"
+INPUT_FASTA="/filer-5/user/tan/evolution/crp/new/alphafold_barley/panbarley.more.pep.fasta"
+OUTPUT_DIR="/filer-5/user/tan/evolution/crp/new/alphafold_barley/panbarley_esmfold_more_res"
 export TORCH_HOME="/filer-5/agruppen/PBP/tan/software/esmfold"
 mkdir -p ${OUTPUT_DIR}
 
@@ -42,4 +42,3 @@ ${ESMFOLD_CONTAINER} \
 
 echo "Prediction finished."
 date
-
