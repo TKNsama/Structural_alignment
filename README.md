@@ -1,4 +1,11 @@
-"""# Protein Structural Space Analysis Workflow
+### Protein Structural Space Analysis Workflow
+
+## step0: use mmseq2 to cluster similar sequence and get represent sequence `seqclust`. (based on Sequence)
+## step1: use esmfold to predicted `linclust` sequence, map other sequence to `seqclust`. 
+## step2: use foldseek to cluster all the pdb files of `seqclust`, get the `proclust`. (based on pridected Protein strucure)
+## step3: use foldseek to alignment all agasin all of `seqclust`, then transfer into matrix. 
+## step4: UMAP clustering.
+
 
 这是一个用于蛋白质结构分析的自动化流水线，涵盖了从序列预测到结构空间可视化的完整流程。
 
