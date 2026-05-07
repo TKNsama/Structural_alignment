@@ -1,0 +1,8 @@
+*.pdb
+pep_db*
+all_vs_all_res*
+all_vs_all.tab
+crp_structural_dist_matrix.csv
+tmp/
+*.out
+*.err
