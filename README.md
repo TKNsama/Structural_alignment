@@ -7,3 +7,6 @@
 # step4: UMAP clustering.
 
 ## Please contact me if you have any question
+
+
+Note: This pipeline is highly optimized for our local HPC cluster environment (using Apptainer for ESMFold and Specific Slurm modules). Paths and module names need to be adapted if running on other environments.
