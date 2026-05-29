@@ -13,17 +13,16 @@
 
 module load foldseek
 
-# 路径定义
+# Path
 INPUT_PDB_DIR="/filer-5/user/tan/evolution/crp/new/alphafold_barley/odb_all_esmfold_res_filtered/"
 RESULT_DIR="/filer-5/user/tan/evolution/crp/new/alphafold_barley/foldseek_results_filtered"
 OUTPUT_PREFIX="${RESULT_DIR}/crp_cluster_filtered"
 TMP_DIR="${RESULT_DIR}/tmp"
 
-# 自动创建目录
 mkdir -p ${RESULT_DIR}
 mkdir -p ${TMP_DIR}
 
-# 检查输入路径是否存在
+# Path checking
 if [ ! -d "$INPUT_PDB_DIR" ]; then
     echo "Error: Input directory $INPUT_PDB_DIR does not exist."
     exit 1
@@ -32,7 +31,7 @@ fi
 date
 echo "Starting Foldseek clustering for 8000 proteins..."
 
-# 执行 Easy-Cluster
+# Running
 foldseek easy-cluster \
     "${INPUT_PDB_DIR}" \
     "${OUTPUT_PREFIX}" \
