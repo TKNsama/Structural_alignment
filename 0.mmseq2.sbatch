@@ -12,9 +12,9 @@
 #SBATCH --mail-type=END
 #SBATCH --mail-user=tan@ipk-gatersleben.de
 
-set -e          # 遇到错误立即退出
-set -u          # 遇到未定义变量报错
-set -o pipefail # 管道错误传递
+set -e          
+set -u          
+set -o pipefail 
 
 module load python
 
@@ -33,7 +33,7 @@ mkdir -p logs
 mkdir -p "${RESULT_DIR}/linclust"
 mkdir -p "$TMP_DIR"
 
-
+# Running
 $MMSEQS easy-linclust \
     "$INPUT_FASTA" \
     "$LINCLUST_OUT" \
@@ -42,9 +42,9 @@ $MMSEQS easy-linclust \
     --min-seq-id "$MIN_SEQ_ID" \
     -c "$COVERAGE" \
     --cov-mode "$COV_MODE" \
-    -v 3 # 详细程度 (1: errors, 2: warnings, 3: infos)
+    -v 3 
 
-# 统计聚类后的代表序列数量
+# Summary
 if [[ -f "${LINCLUST_OUT}_rep_seq.fasta" ]]; then
     rep_count=$(grep -c "^>" "${LINCLUST_OUT}_rep_seq.fasta")
     raw_count=$(grep -c "^>" "$INPUT_FASTA")
