@@ -1,7 +1,7 @@
 library(umap)
 library(dplyr)
 library(ggplot2)
-library(ggrepel)  # 用于更美观的标签排列
+library(ggrepel)
 
 df <- read.csv("/filer-5/user/tan/protein/crp_structural_dist_matrix.csv")
 
