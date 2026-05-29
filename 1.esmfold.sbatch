@@ -13,26 +13,23 @@
 #SBATCH --mail-type=END
 #SBATCH --mail-user=tan@ipk-gatersleben.de
 
-# 1. 环境准备
+# 1. env
 module load esm-fold
 module load cuda
-# 必须设置 APPTAINER_NV 为 true 以使用 GPU
+# For GPU
 export APPTAINER_NV=true
 
-# 关键：必须绑定你的文件系统路径，否则容器内找不到 /filer-5
-# 这里建议绑定整个 /filer-5 目录
+# Binding the system/file path
 export APPTAINER_BIND="/filer-5:/filer-5"
 
-# 2. 定义路径
-# 请检查你的输入文件路径是否正确
+# 2. file path
 INPUT_FASTA="/filer-5/user/tan/evolution/crp/new/alphafold_barley/panbarley.more.pep.fasta"
 OUTPUT_DIR="/filer-5/user/tan/evolution/crp/new/alphafold_barley/panbarley_esmfold_more_res"
 export TORCH_HOME="/filer-5/agruppen/PBP/tan/software/esmfold"
 mkdir -p ${OUTPUT_DIR}
 
-# 3. 执行 ESM-Fold 预测
-# 使用管理员定义的变量 ${ESMFOLD_CONTAINER} 来启动容器
-# -i 输入 fasta, -o 输出目录
+# 3. Running
+# -i fasta, -o output_dir
 date
 echo "Starting ESM-Fold prediction"
 
