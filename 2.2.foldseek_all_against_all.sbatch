@@ -13,24 +13,22 @@
 
 module load foldseek
 
-# 1. 进入你的 PDB 文件夹
+# Path
 cd /filer-5/user/tan/evolution/crp/new/alphafold_barley/Poaceae_esmfold_res
 
-# 2. 创建 Foldseek 数据库
+# Create db
 foldseek createdb . ../crp_db
 
-# 3. 运行 All-against-all 比对
-# --alignment-type 1: 使用 3Di+AA 混合比对
-# --tmscore-threshold 0.0: 我们需要所有 pair 的得分（或者设为 0.3 过滤掉完全不相关的）
-# -a: 计算并输出比对结果
+# Running
+# --alignment-type 1:  3Di+AA 
 foldseek search ../crp_db ../crp_db ../all_vs_all_res ../tmp \
     --alignment-type 1 \
     -a 1 \
     --threads 16 \
     --tmscore-threshold 0.3
 
-# 4. 导出为易读的 TAB 格式
-# query, target, alntmscore (这是 Foldseek 估算的 TM-score)
+# output as readable format
+# query, target, alntmscore (TM-score)
 foldseek convertalis ../crp_db ../crp_db ../all_vs_all_res ../all_vs_all.tab \
     --format-output "query,target,alntmscore,rmsd,lddt,fident,alnlen,evalue"
 
