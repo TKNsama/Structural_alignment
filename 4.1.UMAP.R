@@ -3,6 +3,8 @@ library(dplyr)
 library(ggplot2)
 library(ggrepel)
 
+BASE_DIR <- Sys.getenv("BASE_DIR", unset = "/filer-5/agruppen/PBP/tan")
+
 df <- read.csv("/filer-5/user/tan/protein/crp_structural_dist_matrix.csv")
 
 rownames(df) <- df[,1]

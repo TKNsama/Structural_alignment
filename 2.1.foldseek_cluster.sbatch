@@ -11,6 +11,9 @@
 #SBATCH --mail-type=END                                 # Type of email notification- BEGIN,END,FAIL,ALL
 #SBATCH --mail-user=tan@ipk-gatersleben.de  # Email to which notifications will be sent
 
+# === Configuration ===
+BASE_DIR="${BASE_DIR:-/filer-5/agruppen/PBP/tan}"
+
 module load foldseek
 
 # Path

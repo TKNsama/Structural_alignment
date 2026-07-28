@@ -4,6 +4,8 @@ library(RColorBrewer)
 library(ggrepel)
 library(data.table)
 
+BASE_DIR <- Sys.getenv("BASE_DIR", unset = "/filer-5/agruppen/PBP/tan")
+
 setwd("U:/project/evolution_of_CRP_new/protein_cluster/")
 
 df <- read.csv("//filer-5/user/tan/evolution/crp/new/alphafold_barley/crp_structural_dist_matrix.csv",header = T)

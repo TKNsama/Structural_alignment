@@ -13,6 +13,9 @@
 #SBATCH --mail-type=END
 #SBATCH --mail-user=tan@ipk-gatersleben.de
 
+# === Configuration ===
+BASE_DIR="${BASE_DIR:-/filer-5/agruppen/PBP/tan}"
+
 # 1. env
 module load esm-fold
 module load cuda
@@ -25,7 +28,7 @@ export APPTAINER_BIND="/filer-5:/filer-5"
 # 2. file path
 INPUT_FASTA="/filer-5/user/tan/evolution/crp/new/alphafold_barley/panbarley.more.pep.fasta"
 OUTPUT_DIR="/filer-5/user/tan/evolution/crp/new/alphafold_barley/panbarley_esmfold_more_res"
-export TORCH_HOME="/filer-5/agruppen/PBP/tan/software/esmfold"
+export TORCH_HOME="$BASE_DIR/software/esmfold"
 mkdir -p ${OUTPUT_DIR}
 
 # 3. Running

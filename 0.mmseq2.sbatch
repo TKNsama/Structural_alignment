@@ -12,13 +12,16 @@
 #SBATCH --mail-type=END
 #SBATCH --mail-user=tan@ipk-gatersleben.de
 
-set -e          
+# === Configuration ===
+BASE_DIR="${BASE_DIR:-/filer-5/agruppen/PBP/tan}"
+
+set -e
 set -u          
 set -o pipefail 
 
 module load python
 
-MMSEQS="/filer-5/agruppen/PBP/tan/software/mmseqs/bin/mmseqs"
+MMSEQS="$BASE_DIR/software/mmseqs/bin/mmseqs"
 
 INPUT_FASTA="/home/tan/project/evolution_of_CRP_new/1.putative_CRP/odb_plant_HC_CRP.fasta"
 RESULT_DIR="analysis_results_$(date +%Y%m%d)"
